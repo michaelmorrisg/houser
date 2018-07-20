@@ -3,14 +3,16 @@ const initialState = {
     address:'',
     city: '',
     stateLocation: '',
-    zip: 0,
+    zip: '',
     imgUrl: '',
-    monthlyMortage: 0,
-    monthlyRent: 0
+    monthlyMortage: '',
+    monthlyRent: ''
 }
 
 const UPDATE_STEP_ONE = "UPDATE_STEP_ONE"
 const UPDATE_STEP_TWO = "UPDATE_STEP_TWO"
+const UPDATE_STEP_THREE = "UPDATE_STEP_THREE"
+const CANCEL_HOUSE = "CANCEL_HOUSE"
 
 
 function reducer(state=initialState, action){
@@ -25,6 +27,13 @@ function reducer(state=initialState, action){
             })
         case UPDATE_STEP_TWO:
             return Object.assign({},state,{imgUrl: action.payload})
+        case UPDATE_STEP_THREE:
+            return Object.assign({},state,{
+                monthlyMortage: action.payload.monthlyMortage,
+                monthlyRent: action.payload.monthlyRent
+            })
+        case CANCEL_HOUSE:
+            return Object.assign({},initialState)
         default: return state
     }
 }
@@ -39,6 +48,18 @@ export function updateStepTwo(imgUrl){
     return{
         type: UPDATE_STEP_TWO,
         payload: imgUrl
+    }
+}
+export function updateStepThree(monthlyMortage,monthlyRent){
+    return{
+        type: UPDATE_STEP_THREE,
+        payload: {monthlyMortage,monthlyRent}
+    }
+}
+export function cancelHouse(){
+    return{
+        type: CANCEL_HOUSE,
+        payload: initialState
     }
 }
 

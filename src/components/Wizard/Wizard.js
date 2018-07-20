@@ -5,19 +5,21 @@ import axios from 'axios'
 import StepOne from '../Step One/StepOne'
 import StepTwo from '../Step Two/StepTwo'
 import StepThree from '../Step Three/StepThree'
+import { connect } from 'react-redux'
+import {cancelHouse} from '../../ducks/reducer'
 
-export default class Wizard extends Component {
+class Wizard extends Component {
     constructor(){
         super()
         this.state = {
         }
     }
 
-    render(){
+    render(props){
 
         return (
             <div>
-               <Link to="/"><button>Cancel</button></Link>
+               <Link to="/"><button onClick={(e)=>{this.props.cancelHouse()}}>Cancel</button></Link>
                <Switch>
             <Route path="/wizard/step1" component={StepOne} />
             <Route path="/wizard/step2" component={StepTwo}/>
@@ -27,7 +29,7 @@ export default class Wizard extends Component {
         )
 }
 }
-
+export default connect(null,{cancelHouse})(Wizard)
 // else{
 //     return (
 //         <Redirect to="/"/>

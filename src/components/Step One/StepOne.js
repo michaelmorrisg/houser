@@ -11,8 +11,17 @@ class StepOne extends Component {
             address:'',
             city: '',
             stateLocation: '',
-            zip: 0,
+            zip: ''
         }
+    }
+    componentDidMount(){
+        this.setState({
+            name: this.props.name,
+            address: this.props.address,
+            city: this.props.city,
+            stateLocation: this.props.stateLocation,
+            zip: this.props.zip
+        })
     }
     handleName(input){
         this.setState({
@@ -44,11 +53,11 @@ class StepOne extends Component {
         console.log(this.props)
         return(
         <div>
-            <input onChange={(e)=>this.handleName(e.target.value)} placeholder="name"/>
-            <input onChange={(e)=>this.handleAddress(e.target.value)} placeholder="address"/>
-            <input onChange={(e)=>this.handleCity(e.target.value)} placeholder="city"/>
-            <input onChange={(e)=>this.handleState(e.target.value)} placeholder="state"/>
-            <input onChange={(e)=>this.handleZip(e.target.value)} placeholder="zipcode"/>
+            <input onChange={(e)=>this.handleName(e.target.value)} placeholder="name" value={this.state.name}/>
+            <input onChange={(e)=>this.handleAddress(e.target.value)} placeholder="address"value={this.state.address}/>
+            <input onChange={(e)=>this.handleCity(e.target.value)} placeholder="city"value={this.state.city}/>
+            <input onChange={(e)=>this.handleState(e.target.value)} placeholder="state"value={this.state.stateLocation}/>
+            <input onChange={(e)=>this.handleZip(e.target.value)} placeholder="zipcode"value={this.state.zip}/>
             <Link to="/wizard/step2"><button onClick={(e)=>this.props.updateStepOne(
                 this.state.name,this.state.address,this.state.city,this.state.stateLocation,this.state.zip
             )}>Next Step</button></Link>
