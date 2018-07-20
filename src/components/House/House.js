@@ -7,14 +7,16 @@ export default function House(props){
                 <div><img className="house-image-image" src={props.house.image}/></div>
             </div>
             <div className="house-details">
-                <div>Property Name: {props.house.name}</div>
-                <div>Address: {props.house.address}</div>
-                <div>City: {props.house.city}</div>
-                <div>State: {props.house.state}</div>
+            <br/>
+                <div>Property Name: {props.house.name}</div><br/>
+                <div>Address: {props.house.address}</div><br/>
+                <div>City: {props.house.city}</div><br/>
+                <div>State: {props.house.state}</div><br/>
                 <div>Zip: {props.house.zip}</div>
             </div>
-            <div>    
-                <div>Mortgage: ${props.house.monthly_mortgage}</div>
+            <div>   
+                <br/> 
+                <div>Mortgage: ${props.house.monthly_mortgage}</div><br/>
                 <div>Rent:{props.house.desired_rent}</div>   
             </div>
             <div className="delete-button-div">
