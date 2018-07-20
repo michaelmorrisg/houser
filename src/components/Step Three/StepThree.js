@@ -21,15 +21,6 @@ class StepThree extends Component {
         })
     }
     addHouse(){
-        console.log({
-            name:this.props.name,
-            address:this.props.address,
-            city: this.props.city,
-            state: this.props.stateLocation,
-            zip:this.props.zip,
-            image: this.props.imgUrl,
-            monthlyMortgage: this.state.monthlyMortgage,
-            monthlyRent: this.state.monthlyRent})
         axios.post('/api/house',{
             name:this.props.name,
             address:this.props.address,
@@ -67,9 +58,10 @@ class StepThree extends Component {
         return(
             <div>
                 <input onChange={(e)=>this.handleMortgage(e.target.value)} placeholder="Monthly Mortgage"/>
-                <input onChange={(e)=>this.handleRent(e.target.value)}placeholder="Desired Monthly Rent"/>
-                <Link to="/wizard/step2"><button>Previous Step</button></Link>
-                <button onClick={()=>this.completeFunctions(this.state.monthlyMortgage,this.state.monthlyRent)}>Complete</button>
+                <br/><input onChange={(e)=>this.handleRent(e.target.value)}placeholder="Desired Monthly Rent"/>
+                <br/><Link to="/wizard/step2"><button>Previous Step</button></Link>
+                <br/>
+                <br/><button onClick={()=>this.completeFunctions(this.state.monthlyMortgage,this.state.monthlyRent)}>Complete</button>
             </div>
         )
     } else{

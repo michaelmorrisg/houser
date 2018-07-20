@@ -26,8 +26,9 @@ handleUpdate(input){
         return(
             <div>
                 <input onChange={(e)=>this.handleUpdate(e.target.value)} placeholder="Image URL" value={this.state.imgUrl}/>
-                <Link to="/wizard/step1"><button>Previous Step</button></Link>
-                <Link to="/wizard/step3"><button onClick={(e)=>this.props.updateStepTwo(this.state.imgUrl)}>Next Step</button></Link>
+                <br/><Link to="/wizard/step1"><button>Previous Step</button></Link>
+                <br/>
+                <br/><Link to="/wizard/step3"><button onClick={(e)=>this.props.updateStepTwo(this.state.imgUrl)}>Next Step</button></Link>
             </div>
         )
     }

@@ -18,8 +18,11 @@ class Wizard extends Component {
     render(props){
 
         return (
-            <div>
-               <Link to="/"><button onClick={(e)=>{this.props.cancelHouse()}}>Cancel</button></Link>
+            <div className="wizard">
+                <div className="wizard-text">
+                    <h2>Add New Listing</h2>
+                    <Link to="/"><button className="cancel-button" onClick={(e)=>{this.props.cancelHouse()}}>Cancel</button></Link>
+                </div>
                <Switch>
             <Route path="/wizard/step1" component={StepOne} />
             <Route path="/wizard/step2" component={StepTwo}/>

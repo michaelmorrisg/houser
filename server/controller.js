@@ -16,9 +16,8 @@ module.exports = {
             zip:req.body.zip,
             image: req.body.image,
             monthlyMortgage: req.body.monthlyMortgage,
-            desiredRent: req.body.desiredRent})
-        .then(response=>res.status(200).send(response)).catch(err=>
-        console.log(err))
+            desiredRent: req.body.monthlyRent})
+        .then(response=>res.status(200).send(response)).catch(err=>console.log(err))
     },
     deleteHouse: (req,res) =>{
         const dbInstance = req.app.get('db')

@@ -35,14 +35,16 @@ class Dashboard extends Component {
 
     render(){
         return (
-            <div>
-                Dashboard
+            <div className="dashboard-body">
+            <div className="dashboard-header">
+            <h2>Dashboard</h2>
+            <Link to="/wizard/step1"><button>Add New Property</button></Link>
+            </div>
                 {this.state.allHouses.map(((element,i)=>{
                     return(
                         <House deleteHouse={this.deleteHouse} house={this.state.allHouses[i]} key={element.id}/>
                     )
                 }))}
-                <Link to="/wizard/step1"><button>Add New Property</button></Link>
             </div>
         )
     }
