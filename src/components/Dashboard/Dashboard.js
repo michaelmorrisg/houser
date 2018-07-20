@@ -42,7 +42,7 @@ class Dashboard extends Component {
                         <House deleteHouse={this.deleteHouse} house={this.state.allHouses[i]} key={element.id}/>
                     )
                 }))}
-                <Link to="/wizard"><button>Add New Property</button></Link>
+                <Link to="/wizard/step1"><button>Add New Property</button></Link>
             </div>
         )
     }
