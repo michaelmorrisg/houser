@@ -13,8 +13,12 @@ module.exports = {
             address:req.body.address,
             city:req.body.city,
             state:req.body.state,
-            zip:req.body.zip})
-        .then(response=>res.status(200).send(response))
+            zip:req.body.zip,
+            image: req.body.image,
+            monthlyMortgage: req.body.monthlyMortgage,
+            desiredRent: req.body.desiredRent})
+        .then(response=>res.status(200).send(response)).catch(err=>
+        console.log(err))
     },
     deleteHouse: (req,res) =>{
         const dbInstance = req.app.get('db')
